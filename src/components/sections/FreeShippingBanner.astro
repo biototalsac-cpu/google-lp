@@ -1,0 +1,44 @@
+---
+import Section from "../ui/Section.astro";
+---
+
+<div class="bg-[#FDC800] text-[#006252] overflow-hidden py-2 relative z-50">
+  <div
+    class="absolute inset-0 opacity-10 mix-blend-multiply"
+    style="background-image: radial-gradient(circle, rgba(0, 98, 82, 0.35) 1px, transparent 1px); background-size: 14px 14px;"
+  ></div>
+  <div class="marquee-container flex whitespace-nowrap">
+    <div class="marquee-content flex gap-8 items-center font-bold text-sm tracking-widest uppercase">
+      {Array(10).fill(null).map(() => (
+        <>
+          <span>Frete Grátis para todo o Brasil</span>
+          <span class="w-2 h-2 rounded-full bg-[#006252]"></span>
+        </>
+      ))}
+    </div>
+    <div class="marquee-content flex gap-8 items-center font-bold text-sm tracking-widest uppercase" aria-hidden="true">
+      {Array(10).fill(null).map(() => (
+        <>
+          <span>Frete Grátis para todo o Brasil</span>
+          <span class="w-2 h-2 rounded-full bg-[#006252]"></span>
+        </>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .marquee-container {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+  
+  .marquee-content {
+    animation: scroll 45s linear infinite;
+    padding-left: 2rem;
+  }
+
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
+</style>

@@ -1,0 +1,135 @@
+---
+import Section from "../ui/Section.astro";
+import Card from "../ui/Card.astro";
+import { Star, Quote, Play } from "lucide-react";
+
+const videoTestimonials = [
+  {
+    name: "Depoimento 01",
+    video: "/videos/depoimento-oleo-de-avestruz-01.mp4",
+  },
+  {
+    name: "Depoimento 02",
+    video: "/videos/depoimento-oleo-de-avestruz-02.mp4",
+  },
+  {
+    name: "Depoimento 03",
+    video: "/videos/depoimento-oleo-de-avestruz-03.mp4",
+  },
+];
+
+const testimonials = [
+  {
+    name: "Dr. Rey",
+    role: "Médico / Cirurgião",
+    avatar: "/avatars/dr-rey.png",
+    quote: "Ômega 3 auxilia e aumenta muito a inteligência, diminui a depressão, controla a ansiedade, e o melhor ômega vem do avestruz.",
+  },
+  {
+    name: "Dra. Luana Cardozo",
+    role: "Especialista em Nutrição",
+    avatar: "/avatars/dra-luana.png",
+    quote: "Eu uso 4 cápsulas 2 vezes ao dia para prevenção de doenças, imunidade e ação antioxidante. É realmente recomendado para você colocar na sua alimentação.",
+  },
+  {
+    name: "Geraldo Luiz",
+    role: "Apresentador",
+    avatar: "/avatars/geraldo-luiz.png",
+    quote: "Eu uso 3 vezes por dia esse fantástico óleo de avestruz para manter a minha energia e cuidar do meu bem estar.",
+  },
+  {
+    name: "Sula Miranda",
+    role: "Cantora",
+    avatar: "/avatars/sula-miranda.png",
+    quote: "Alimentação saudável e através do uso dos ômegas.",
+  },
+  {
+    name: "Dr. Dayan Siebra",
+    role: "Médico",
+    avatar: "/avatars/dr-dayan.png",
+    quote: "Para nós vivermos em harmonia precisamos de um produto muito interessante e esse produto chama-se ômega... do óleo de avestruz.",
+  },
+  {
+    name: "Irmã Lina Ambel",
+    role: "Enfermeira/Hospital",
+    avatar: "/avatars/irma-lina.png",
+    quote: "Eu uso o óleo de avestruz no hospital no tratamento de feridas e queimaduras, ou seja, tratamentos dermatológicos.",
+  }
+];
+---
+
+<Section id="testimonials" class="bg-white py-24">
+  <div class="text-center max-w-3xl mx-auto mb-16">
+     <div class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-[#005C54] uppercase bg-[#CFFAE5] rounded-full">
+      Depoimentos Reais
+    </div>
+    <h2 class="text-3xl md:text-4xl font-bold text-[#002E2A] mb-4">
+      Quem Já Experimentou, <span class="text-[#005C54]">Recomenda</span>
+    </h2>
+    <p class="text-lg text-gray-500">
+      Veja o que médicos, nutricionistas e celebridades dizem sobre o Ômegas da Amazônia.
+    </p>
+  </div>
+
+  <!-- Video Testimonials -->
+  <div class="grid md:grid-cols-3 gap-6 mb-20 max-w-5xl mx-auto">
+    {videoTestimonials.map((v) => (
+      <div class="group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-black">
+        <video
+          class="w-full aspect-[9/16] object-cover"
+          controls
+          preload="metadata"
+          poster=""
+        >
+          <source src={v.video} type="video/mp4" />
+          Seu navegador não suporta vídeos.
+        </video>
+        
+        
+        <!-- Bottom accent -->
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#005C54] via-[#FDC800] to-[#005C54]"></div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Divider -->
+  <div class="text-center max-w-3xl mx-auto mb-16">
+    <h3 class="text-2xl md:text-3xl font-bold text-[#002E2A] mb-2">
+      O QUE ESPECIALISTAS DIZEM <span class="text-[#005C54]">DO NOSSO PRODUTO</span>
+    </h3>
+    <p class="text-lg text-gray-500">
+      Faça como eles, adquira já seu suplemento!
+    </p>
+  </div>
+
+  <!-- Text Testimonials -->
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {testimonials.map((t) => (
+      <Card class="relative hover:-translate-y-2 transition-transform duration-300 border-t-4 border-[#005C54]">
+        <div class="absolute -top-4 -right-4 bg-[#CFFAE5] p-3 rounded-full text-[#005C54] shadow-sm">
+            <Quote className="w-6 h-6 fill-current" />
+        </div>
+        
+        <div class="flex items-center gap-1 mb-6 text-yellow-400">
+           {[...Array(5)].map(() => <Star className="w-4 h-4 fill-current" />)}
+        </div>
+        
+        <p class="text-gray-600 italic mb-8 relative z-10 text-lg leading-relaxed">"{t.quote}"</p>
+        
+        <div class="flex items-center gap-4 mt-auto pt-6 border-t border-gray-100">
+          <img src={t.avatar} alt={t.name} class="w-12 h-12 rounded-full object-cover shadow-md" />
+          <div>
+            <h4 class="font-bold text-[#002E2A] text-sm">{t.name}</h4>
+            <span class="text-xs text-[#005C54] font-bold uppercase tracking-wide">{t.role}</span>
+          </div>
+        </div>
+      </Card>
+    ))}
+  </div>
+
+  <div class="text-center mt-12">
+    <a href="#offers" class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold bg-[#FDC800] hover:bg-[#e6b600] text-[#006252] rounded-full shadow-lg shadow-[#FDC800]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+      Quero Minha Saúde de Volta
+    </a>
+  </div>
+</Section>

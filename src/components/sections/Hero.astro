@@ -1,0 +1,123 @@
+---
+import Button from "../ui/Button.astro";
+import { ShieldCheck } from "lucide-react";
+import productHero from "../../assets/images/oleo-de-avestruz-1-pote.png";
+import bgHero from "../../assets/images/bg-hero-amazonico.jpeg";
+
+const benefits = [
+  { title: "Dores articulares", desc: "Ômega 3 reduz inflamação e protege as articulações" },
+  { title: "Dores musculares", desc: "Ômega 6 auxilia na regeneração celular" },
+  { title: "Ardência e inflamação interna", desc: "Ômega 7 ajuda na recuperação dos tecidos" },
+  { title: "Rigidez ao acordar", desc: "Ácidos graxos essenciais melhoram lubrificação celular" },
+];
+---
+
+<section class="hero-viewport relative overflow-hidden">
+  <!-- Amazonian Background -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#002E2A] via-[#004D40] to-[#00695C]"></div>
+    <img
+      src={bgHero.src}
+      width={bgHero.width}
+      height={bgHero.height}
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover opacity-[0.05]"
+      loading="eager"
+      decoding="async"
+    />
+    <div class="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] bg-[#00897B]/20 rounded-full blur-[150px]"></div>
+    <div class="absolute bottom-[-15%] right-[-10%] w-[600px] h-[600px] bg-[#1B5E20]/15 rounded-full blur-[160px]"></div>
+    <div class="absolute top-[30%] left-[60%] w-[300px] h-[300px] bg-[#FDC800]/5 rounded-full blur-[100px]"></div>
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 40px 40px;"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full h-full flex flex-col justify-center py-6">
+    <!-- Headline -->
+    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white leading-tight text-center max-w-4xl mx-auto pb-6 lg:pb-8 animate-fade-in-up">
+      O óleo raro com <span class="text-[#FDC800]">4 Ômegas, Vitamina D3 e Alquilgliceróis</span> que a indústria farmacêutica prefere que você não conheça
+    </h1>
+
+    <div class="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+      <!-- Left column -->
+      <div class="space-y-6 z-10 text-center lg:text-left order-2 lg:order-1">
+        <!-- Checklist -->
+        <ul class="space-y-2 text-left mx-auto lg:mx-0">
+          {benefits.map((b) => (
+            <li class="flex items-center gap-3 px-3 py-1.5 rounded-xl hover:bg-white/5 transition-colors duration-200">
+              <span class="flex-shrink-0 w-6 h-6 rounded-lg bg-[#CFFAE5]/15 border border-[#CFFAE5]/25 flex items-center justify-center">
+                <svg class="w-3.5 h-3.5 text-[#CFFAE5]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <span class="text-white/85 text-xs sm:text-sm lg:text-lg">
+                <strong class="text-white">{b.title}</strong>
+                <span class="text-white/40 mx-1 sm:mx-2">&rarr;</span>{b.desc}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <Button href="#offers" variant="primary" size="lg" class="w-full sm:w-auto text-lg px-10 py-4 transform hover:scale-105 transition-transform duration-300">
+            Quero Minha Saúde de Volta
+          </Button>
+        </div>
+      </div>
+
+      <!-- Right column - Product -->
+      <div class="relative flex justify-center lg:justify-end order-1 lg:order-2">
+        <div class="relative z-10 floating">
+          <div class="absolute inset-0 bg-[#CFFAE5] rounded-full blur-3xl opacity-15 scale-75 top-10"></div>
+          <img
+            src={productHero.src}
+            width={productHero.width}
+            height={productHero.height}
+            alt="Ômegas da Amazônia - Pote de Óleo de Avestruz"
+            class="relative w-full max-w-[200px] lg:max-w-[340px] drop-shadow-[0_20px_60px_rgba(207,250,229,0.25)]"
+            loading="eager"
+          />
+
+          <!-- Floating badge -->
+          <div class="absolute -bottom-3 -right-1 lg:-bottom-6 lg:-right-6 bg-white/10 border border-white/15 p-2.5 lg:p-4 rounded-xl lg:rounded-2xl shadow-2xl flex items-center gap-2 lg:gap-3 animate-bounce-slow">
+            <div class="bg-[#CFFAE5]/15 p-1.5 lg:p-2 rounded-lg text-[#CFFAE5]">
+              <ShieldCheck size={20} />
+            </div>
+            <div>
+              <p class="text-[9px] lg:text-xs text-white/50 font-bold uppercase">Garantia</p>
+              <p class="text-[11px] lg:text-sm font-bold text-white">100% Original</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-viewport {
+    height: calc(100vh - 40px);
+    min-height: 550px;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .animate-bounce-slow {
+    animation: bounce 3s infinite;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(-5%); }
+    50% { transform: translateY(0); }
+  }
+</style>

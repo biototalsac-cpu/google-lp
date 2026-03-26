@@ -1,0 +1,34 @@
+---
+import Section from "../ui/Section.astro";
+import logoRedeAmazonica from "../../assets/images/media/logo-rede-amazonica.png";
+import logoTVAparecida from "../../assets/images/media/logo-tv-aparecida.png";
+import logoRedeFamilia from "../../assets/images/media/logo-rede-familia.png";
+import logoMedia1 from "../../assets/images/media/logo-media-1.png";
+import logoMedia2 from "../../assets/images/media/logo-media-2.png";
+import logoMedia3 from "../../assets/images/media/logo-media-3.png";
+---
+
+<Section class="bg-gray-50 border-y border-gray-200 py-16">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-[#002E2A] mb-4">
+      ONDE JÁ ESTIVEMOS
+    </h2>
+    <p class="text-lg text-gray-500">Somos a marca mais querida do Brasil</p>
+    <div class="h-1 w-24 bg-[#005C54]/20 mx-auto mt-4 rounded-full"></div>
+  </div>
+
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-12 items-center justify-items-center">
+    <img src={logoMedia1.src} width={logoMedia1.width} height={logoMedia1.height} alt="Mídia 1" class="h-12 w-auto object-contain transition-all duration-300 hover:scale-110" loading="lazy" />
+    <img src={logoMedia2.src} width={logoMedia2.width} height={logoMedia2.height} alt="Mídia 2" class="h-12 w-auto object-contain transition-all duration-300 hover:scale-110" loading="lazy" />
+    <img src={logoMedia3.src} width={logoMedia3.width} height={logoMedia3.height} alt="Mídia 3" class="h-12 w-auto object-contain transition-all duration-300 hover:scale-110" loading="lazy" />
+    <img src={logoRedeAmazonica.src} width={logoRedeAmazonica.width} height={logoRedeAmazonica.height} alt="Rede Amazônica" class="h-12 w-auto object-contain transition-all duration-300 hover:scale-110" loading="lazy" />
+    <img src={logoRedeFamilia.src} width={logoRedeFamilia.width} height={logoRedeFamilia.height} alt="Rede Família" class="h-12 w-auto object-contain transition-all duration-300 hover:scale-110" loading="lazy" />
+    <img src={logoTVAparecida.src} width={logoTVAparecida.width} height={logoTVAparecida.height} alt="TV Aparecida" class="h-12 w-auto object-contain transition-all duration-300 hover:scale-110" loading="lazy" />
+  </div>
+
+  <div class="text-center mt-12">
+    <a href="#offers" class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold bg-[#FDC800] hover:bg-[#e6b600] text-[#006252] rounded-full shadow-lg shadow-[#FDC800]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+      Quero Minha Saúde de Volta
+    </a>
+  </div>
+</Section>

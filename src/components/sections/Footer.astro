@@ -1,0 +1,123 @@
+---
+import { Facebook, Instagram, Mail, Phone } from "lucide-react";
+import certificacoes from "../../assets/images/certificacoes.png";
+import logo from "../../assets/images/logo.png";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-[#005C54] text-[#CFFAE5]/80 py-12 border-t border-[#004a43] relative overflow-hidden">
+  <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#005C54] via-[#FDC800] to-[#005C54]"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid md:grid-cols-4 gap-8 mb-12">
+      <div class="col-span-1 md:col-span-1">
+        <div class="flex items-center gap-3">
+          <img
+            src={logo.src}
+            width={logo.width}
+            height={logo.height}
+            alt="Biototal Natural"
+            class="w-10 h-10 object-contain"
+            loading="lazy"
+          />
+          <span class="text-2xl font-bold text-white tracking-tight">
+            BIO TOTAL - <span class="text-[#CFFAE5]">LTDA</span>
+          </span>
+        </div>
+        <p class="mt-4 text-sm text-[#CFFAE5]/60 leading-relaxed">
+          Suplemento 100% natural, extraído com tecnologia de ponta para garantir a máxima pureza e eficácia para sua saúde.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-6 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-[#FDC800]"></span>
+            Contato
+        </h4>
+        <ul class="space-y-4 text-sm">
+          <li class="flex items-start gap-3 group">
+            <div class="p-2 bg-[#004a43] rounded-lg flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#CFFAE5]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <address class="not-italic text-xs leading-relaxed text-[#CFFAE5]/70">
+              R. Therezinha Navarro da Silva, 298<br />
+              Jd do Bosque — Hortolândia/SP<br />
+              CEP 13186-241
+            </address>
+          </li>
+          <li class="flex items-center gap-3 group cursor-pointer">
+            <div class="p-2 bg-[#004a43] rounded-lg group-hover:bg-[#003d36] transition-colors">
+                <Phone className="w-4 h-4 text-[#CFFAE5]" />
+            </div>
+            <a href="https://wa.me/5569992378287" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors group-hover:translate-x-1 duration-300">
+              (69) 99237-8287
+            </a>
+          </li>
+          <li class="flex items-center gap-3 group cursor-pointer">
+             <div class="p-2 bg-[#004a43] rounded-lg group-hover:bg-[#003d36] transition-colors">
+                <Mail className="w-4 h-4 text-[#CFFAE5]" />
+             </div>
+            <a href="mailto:sac@biototalnatural.com.br" class="hover:text-white transition-colors group-hover:translate-x-1 duration-300">
+              sac@biototalnatural.com.br
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-6 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-[#CFFAE5]"></span>
+            Links Úteis
+        </h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="#benefits" class="hover:text-[#FDC800] transition-colors hover:translate-x-1 inline-block duration-200">Benefícios</a></li>
+          <li><a href="#ingredients" class="hover:text-[#FDC800] transition-colors hover:translate-x-1 inline-block duration-200">Composição</a></li>
+          <li><a href="#testimonials" class="hover:text-[#FDC800] transition-colors hover:translate-x-1 inline-block duration-200">Depoimentos</a></li>
+          <li><a href="#offers" class="hover:text-[#FDC800] transition-colors hover:translate-x-1 inline-block duration-200">Comprar Agora</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-6 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-[#FDC800]"></span>
+            Legal
+        </h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="/politica-de-privacidade" class="hover:text-white transition-colors hover:translate-x-1 inline-block duration-200">Política de Privacidade</a></li>
+          <li><a href="/termos-de-uso" class="hover:text-white transition-colors hover:translate-x-1 inline-block duration-200">Termos de Uso</a></li>
+          <li><a href="/aviso-legal" class="hover:text-white transition-colors hover:translate-x-1 inline-block duration-200">Aviso Legal</a></li>
+          <li><a href="/trocas-e-devolucoes" class="hover:text-white transition-colors hover:translate-x-1 inline-block duration-200">Trocas e Devoluções</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="pt-8 border-t border-[#004a43] flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-[#CFFAE5]/50">
+      <div class="text-center md:text-left">
+        <p>&copy; {currentYear} Biototal Natural. Todos os direitos reservados.</p>
+        <p class="mt-1 text-xs opacity-60">CNPJ: 63.781.978/0001-58</p>
+        <p class="mt-2 text-xs opacity-60">
+          Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook.
+          Os resultados podem variar de pessoa para pessoa.
+        </p>
+        <p class="mt-2 text-[10px] opacity-40 leading-relaxed">
+          Aviso Legal: O produto já foi notificado conforme a legislação em vigor. O material disponibilizado tem caráter meramente informativo, detalhando sua composição e o processo de fabricação. Não contém quaisquer alegações de saúde, terapêuticas, funcionais ou cosméticas. Não afirmamos aprovação ou recomendação por parte de autoridade sanitária.
+        </p>
+      </div>
+      <div class="flex flex-col items-center gap-4 flex-shrink-0">
+        <img
+          src={certificacoes.src}
+          width={certificacoes.width}
+          height={certificacoes.height}
+          alt="Selos de segurança - Site Protegido SSL, Google Safe Browsing, Compra 100% Segura"
+          class="w-auto h-24 md:h-32 object-contain"
+          loading="lazy"
+        />
+        <img src="/metodo-de-pagamento.svg" alt="Métodos de pagamento aceitos" class="h-8 sm:h-10 opacity-70" />
+      </div>
+    </div>
+  </div>
+</footer>

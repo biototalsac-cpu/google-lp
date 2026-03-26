@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  
+  --color-brand: #005C54;
+  --color-brand-dark: #004a43;
+  --color-brand-light: #CFFAE5;
+  --color-brand-btn: #FDC800;
+  --color-brand-btn-hover: #e6b600;
+  --color-brand-btn-text: #006252;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  scroll-behavior: smooth;
+  background-color: #f9fefb; /* Very subtle mint tint */
+  color: #1f2937;
+}
+
+/* Custom Utilities */
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.card-hover {
+  @apply hover:-translate-y-2 hover:shadow-2xl transition-all duration-300;
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+

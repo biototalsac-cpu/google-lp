@@ -1,0 +1,78 @@
+---
+/* Infinite Marquee Banner - Amazon Green Glass Style */
+const items = [
+  { text: "Livre de Aditivos Químicos", icon: "🌿" },
+  { text: "Sem Hormônios", icon: "🛡️" },
+  { text: "Suplemento Sinérgico", icon: "⚡" },
+  { text: "Produto Natural", icon: "🌱" },
+];
+
+// Duplicate array for seamless infinite scroll
+const marqueeItems = [...items, ...items, ...items, ...items];
+---
+
+<div class="marquee-section relative py-2 overflow-hidden">
+  <!-- Glassmorphism background -->
+  <div class="absolute inset-0 bg-gradient-to-r from-[#005C54] via-[#007a6f] to-[#005C54] opacity-90"></div>
+  <div class="absolute inset-0 backdrop-blur-md bg-white/5"></div>
+  
+  <!-- Glass shine effect -->
+  <div class="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-black/10 pointer-events-none"></div>
+  
+  <!-- Decorative leaf shapes -->
+  <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-10">
+    <div class="absolute -top-4 left-[10%] w-24 h-24 bg-[#CFFAE5] rounded-full blur-xl"></div>
+    <div class="absolute -bottom-4 left-[30%] w-20 h-20 bg-[#CFFAE5] rounded-full blur-xl"></div>
+    <div class="absolute -top-4 left-[60%] w-28 h-28 bg-[#CFFAE5] rounded-full blur-xl"></div>
+    <div class="absolute -bottom-4 right-[15%] w-20 h-20 bg-[#CFFAE5] rounded-full blur-xl"></div>
+  </div>
+
+  <!-- Top border glow -->
+  <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#CFFAE5]/60 to-transparent"></div>
+  <!-- Bottom border glow -->
+  <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#CFFAE5]/60 to-transparent"></div>
+
+  <!-- Marquee content -->
+  <div class="marquee-track relative z-10 flex items-center whitespace-nowrap">
+    {marqueeItems.map((item) => (
+      <span class="marquee-item inline-flex items-center gap-2 px-5 text-white/95 font-semibold text-xs md:text-sm tracking-wide uppercase shrink-0">
+        <span class="text-sm">{item.icon}</span>
+        <span class="drop-shadow-sm">{item.text}</span>
+        <span class="w-1.5 h-1.5 bg-[#FDC800] rounded-full inline-block shadow-[0_0_6px_#FDC800] ml-3"></span>
+      </span>
+    ))}
+  </div>
+</div>
+
+<style>
+  .marquee-section {
+    box-shadow:
+      0 4px 30px rgba(0, 92, 84, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .marquee-track {
+    animation: marquee-scroll 40s linear infinite;
+    width: max-content;
+  }
+
+  @keyframes marquee-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .marquee-section:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  /* Subtle shimmer on hover */
+  .marquee-item:hover {
+    color: #FDC800;
+    transition: color 0.3s ease;
+  }
+</style>

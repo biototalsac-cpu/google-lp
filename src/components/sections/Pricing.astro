@@ -1,0 +1,162 @@
+---
+import Section from "../ui/Section.astro";
+import Button from "../ui/Button.astro";
+import { Check, Award, Star, Flame, Wallet, Pill, Gift, Package, Truck } from "lucide-react";
+import productOne from "../../assets/images/oleo-de-avestruz-1-pote.png";
+import productThree from "../../assets/images/Kit-3-oleo-de-avestruz.png";
+import productFive from "../../assets/images/Kit-5-oleo-de-avestruz.png";
+import seloGarantia from "../../assets/images/selo-garantia.png";
+
+const offers = [
+  {
+    name: "1 Pote",
+    duration: "30 dias",
+    featured: false,
+    oldPrice: "R$ 119,90",
+    price: "R$ 80,20",
+    link: "https://seguro.biototalnatural.com.br/r/2R1EV4DFWI",
+    image: productOne,
+    highlights: [
+      { icon: "pill", text: "Uso para 30 dias", bold: false },
+      { icon: "package", text: "Uso individual", bold: false },
+    ]
+  },
+  {
+    name: "3 Potes",
+    duration: "90 dias",
+    featured: true,
+    oldPrice: "R$ 357,90",
+    price: "R$ 216,53",
+    label: "Mais Vendido",
+    link: "https://seguro.biototalnatural.com.br/r/FJNI20KIFF",
+    image: productThree,
+    highlights: [
+      { icon: "wallet", text: "Economia de R$ 141,37", bold: false },
+      { icon: "pill", text: "Tratamento recomendado de 90 dias", bold: false },
+      { icon: "check", text: "Frete Grátis", bold: true },
+    ]
+  },
+  {
+    name: "5 Potes",
+    duration: "150 dias",
+    featured: false,
+    oldPrice: "R$ 499,90",
+    price: "R$ 340,84",
+    label: "Melhor Custo-Benefício",
+    link: "https://seguro.biototalnatural.com.br/r/2OTG1X8MZ1",
+    image: productFive,
+    highlights: [
+      { icon: "wallet", text: "Economia de R$ 159,06", bold: false },
+      { icon: "gift", text: "Ideal para tratamento prolongado", bold: false },
+      { icon: "package", text: "Estoque limitado", bold: false },
+      { icon: "check", text: "Frete Grátis", bold: true },
+    ]
+  }
+];
+---
+
+<Section id="offers" class="bg-gradient-to-b from-white to-[#CFFAE5]/20 py-16">
+  <div class="text-center max-w-4xl mx-auto mb-10">
+    <div class="inline-block px-3 py-1 mb-3 text-xs font-semibold tracking-wider text-white uppercase bg-[#005C54] rounded-full shadow-lg shadow-[#005C54]/30">
+      Oferta Exclusiva
+    </div>
+    <h2 class="text-3xl md:text-4xl font-bold text-[#002E2A] mb-4">
+      Escolha o Melhor para <span class="text-[#005C54]">Sua Saúde</span>
+    </h2>
+    <p class="text-lg text-gray-500">
+      Aproveite os descontos progressivos e garanta o tratamento completo com frete grátis.
+    </p>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-6 items-stretch max-w-5xl mx-auto px-4">
+    {offers.map((offer) => (
+      <div class={`relative rounded-2xl p-5 transition-all duration-300 flex flex-col ${offer.featured ? 'bg-white scale-105 shadow-2xl border-2 border-[#005C54] z-10' : 'bg-white/80 border border-gray-200 hover:shadow-xl'}`}>
+        {offer.label && (
+           <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-[#FDC800] text-[#006252] text-xs font-bold uppercase tracking-widest rounded-full z-20 shadow-lg whitespace-nowrap flex items-center gap-1.5">
+             {offer.featured ? <Star className="w-3.5 h-3.5 fill-current" /> : <Flame className="w-3.5 h-3.5" />}
+             {offer.label}
+           </div>
+        )}
+
+        <div class="mb-4 flex justify-center relative">
+          <div class={`absolute inset-0 rounded-full blur-2xl opacity-40 top-6 ${offer.featured ? 'bg-[#CFFAE5]' : 'bg-gray-200'}`}></div>
+          <img
+            src={offer.image.src}
+            width={offer.image.width}
+            height={offer.image.height}
+            alt={offer.name}
+            class="h-32 w-auto object-contain drop-shadow-2xl relative z-10 hover:scale-110 transition-transform duration-500"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="text-center mb-4">
+          <h3 class="text-xl font-bold text-gray-800 mb-0.5">{offer.name}</h3>
+          <p class="text-xs font-medium text-gray-500 mb-3 uppercase tracking-wide">Rende {offer.duration}</p>
+
+          <div class="flex flex-col items-center gap-0.5 mb-1">
+            <span class="text-xs text-gray-400 line-through">De {offer.oldPrice}</span>
+            <span class="text-[10px] text-gray-500">Por apenas</span>
+            <span class={`text-3xl font-black ${offer.featured ? 'text-[#005C54]' : 'text-gray-800'}`}>{offer.price}</span>
+          </div>
+        </div>
+
+        <div class="space-y-2 mb-5 text-xs flex-1">
+          {offer.highlights.map((h) => (
+            <div class="flex items-center gap-2">
+              <div class={`p-1 rounded-full ${h.bold ? 'bg-[#005C54] text-white' : 'bg-[#CFFAE5] text-[#005C54]'}`}>
+                {h.icon === 'wallet' && <Wallet className="w-3.5 h-3.5" />}
+                {h.icon === 'pill' && <Pill className="w-3.5 h-3.5" />}
+                {h.icon === 'gift' && <Gift className="w-3.5 h-3.5" />}
+                {h.icon === 'package' && <Package className="w-3.5 h-3.5" />}
+                {h.icon === 'check' && <Truck className="w-3.5 h-3.5" />}
+              </div>
+              <span class={h.bold ? 'font-bold text-[#005C54]' : 'font-medium text-gray-700'}>{h.text}</span>
+            </div>
+          ))}
+        </div>
+
+        <Button href={offer.link} variant={offer.featured ? 'primary' : 'outline'} class="w-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all" size="md">
+          Comprar Agora
+        </Button>
+      </div>
+    ))}
+  </div>
+  
+  <div class="mt-14 max-w-4xl mx-auto overflow-hidden">
+    <div class="relative rounded-3xl border border-[#FDC800]/30 bg-gradient-to-br from-[#002E2A] via-[#004D40] to-[#00695C] p-6 md:p-10">
+      <div
+        class="absolute inset-0 opacity-10 mix-blend-multiply rounded-3xl"
+        style="background-image: radial-gradient(circle, rgba(255, 255, 255, 0.35) 1px, transparent 1px); background-size: 14px 14px;"
+      ></div>
+      <div class="absolute inset-0 backdrop-blur-md bg-white/5 rounded-3xl"></div>
+
+      <div class="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <div class="flex-shrink-0">
+          <img
+            src={seloGarantia.src}
+            width={seloGarantia.width}
+            height={seloGarantia.height}
+            alt="Selo de Garantia 90 Dias"
+            class="w-40 md:w-52 h-auto drop-shadow-2xl"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="text-center md:text-left">
+          <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-2">GARANTIA DE RESULTADOS</h3>
+          <h4 class="text-xl md:text-2xl font-bold text-[#FDC800] mb-4">OU SEU DINHEIRO DE VOLTA! *</h4>
+          <p class="text-white/80 text-base leading-relaxed mb-4">
+            Sabemos que oferecemos produtos eficazes e superiores aos disponíveis no mercado. Nossas fórmulas são inovadoras e realmente entregam o que prometem.
+          </p>
+          <p class="text-white/80 text-base leading-relaxed mb-4">
+            Confiamos tanto em nossas fórmulas que podemos fazer essa garantia:
+          </p>
+          <p class="text-white font-bold text-base leading-relaxed">
+            Se você não estiver satisfeito com os resultados do Óleo de Avestruz Amazon Struthio em até 90 dias de tratamento, reembolsamos 100% do seu dinheiro!*
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Section>

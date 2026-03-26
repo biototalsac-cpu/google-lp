@@ -1,0 +1,91 @@
+---
+import Section from "../ui/Section.astro";
+import { ChevronDown } from "lucide-react";
+
+const faqs = [
+  {
+    question: "O que é Óleo de Avestruz em Cápsulas?",
+    answer: "O Óleo de Avestruz em Cápsulas é um suplemento alimentar natural, rico em ômega 3, 6, 7 e 9, além de vitaminas A, E e B1. Ele auxilia na imunidade, saúde cardiovascular e renovação celular."
+  },
+  {
+    question: "Como devo usar o Óleo de Avestruz em Cápsulas?",
+    answer: "É indicado o uso de 3 cápsulas ao dia: uma pela manhã, uma à tarde e outra à noite. O uso deve ser contínuo para melhores resultados."
+  },
+  {
+    question: "Quem pode usar? Existe contraindicação?",
+    answer: "Por ser uma fórmula natural, é indicado para qualquer pessoa e não apresenta efeitos colaterais conhecidos."
+  },
+  {
+    question: "Os resultados são comprovados cientificamente?",
+    answer: "Sim. A fórmula foi desenvolvida com base em estudos científicos que comprovam os benefícios dos ômegas e vitaminas para a saúde."
+  },
+  {
+    question: "É seguro comprar pela internet?",
+    answer: "Sim, nosso site utiliza tecnologia de criptografia de dados (SSL) para garantir que suas informações estejam seguras. Além disso, oferecemos garantia de 7 dias."
+  },
+  {
+    question: "Qual o prazo de entrega?",
+    answer: "O produto é enviado em até 1 dia útil após a confirmação do pagamento. O prazo de entrega varia de acordo com sua região."
+  }
+];
+---
+
+<Section id="faq" class="bg-white py-24">
+  <div class="text-center max-w-3xl mx-auto mb-16">
+    <div class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-[#005C54] uppercase bg-[#CFFAE5] rounded-full">
+      Dúvidas Comuns
+    </div>
+    <h2 class="text-3xl md:text-4xl font-bold text-[#002E2A] mb-6">
+      Perguntas <span class="text-[#005C54]">Frequentes</span>
+    </h2>
+    <p class="text-lg text-gray-500">
+      Tire suas dúvidas sobre o suplemento que está mudando a vida de milhares de pessoas.
+    </p>
+  </div>
+
+  <div class="max-w-3xl mx-auto space-y-4">
+    {faqs.map((faq) => (
+      <details class="group bg-gray-50 rounded-2xl border border-gray-100 open:bg-white open:shadow-lg open:ring-1 open:ring-[#CFFAE5] transition-all duration-300">
+        <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-medium text-lg text-gray-800 marker:content-none hover:text-[#005C54] transition-colors">
+          <span>{faq.question}</span>
+          <div class="bg-white p-2 rounded-full shadow-sm group-open:bg-[#CFFAE5] group-open:text-[#005C54] transition-colors">
+             <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform duration-300 group-open:text-[#005C54]" />
+          </div>
+        </summary>
+        <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100 animate-accordion-down">
+          {faq.answer}
+        </div>
+      </details>
+    ))}
+  </div>
+
+  <div class="text-center mt-12">
+    <a href="#offers" class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold bg-[#FDC800] hover:bg-[#e6b600] text-[#006252] rounded-full shadow-lg shadow-[#FDC800]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+      Quero Minha Saúde de Volta
+    </a>
+  </div>
+</Section>
+
+<style>
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  .animate-accordion-down {
+    animation: accordionDown 0.2s ease-out forwards;
+  }
+
+  @keyframes accordionDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

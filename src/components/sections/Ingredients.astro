@@ -1,0 +1,212 @@
+---
+import Section from "../ui/Section.astro";
+import { CheckCircle2 } from "lucide-react";
+import bgCard from "../../assets/images/bg-card.png";
+
+import imgOmega3 from "../../assets/images/ingredients/omega-3.png";
+import imgOmega6 from "../../assets/images/ingredients/omega-6.png";
+import imgOmega7 from "../../assets/images/ingredients/omega-7.png";
+import imgOmega9 from "../../assets/images/ingredients/omega-9.png";
+import imgVitK2 from "../../assets/images/ingredients/vitamina-k2.png";
+import imgVitD3 from "../../assets/images/ingredients/vitamina-d3.png";
+import imgVitB9 from "../../assets/images/ingredients/vitamina-b9.png";
+import imgVitB1B5B9 from "../../assets/images/ingredients/vitaminas-b1-b5-b9.png";
+
+const ingredients = [
+  {
+    title: "Ômega 3",
+    description: "Gordura poli-insaturada essencial para a saúde cardiovascular e cerebral.",
+    image: imgOmega3,
+    benefits: [
+      "Bom para o coração",
+      "Diminui o colesterol",
+      "Regula a pressão arterial",
+      "Bom para a visão e cérebro",
+      "Combate a depressão",
+      "Alivia sintomas de artrite"
+    ]
+  },
+  {
+    title: "Ômega 6",
+    description: "Ácido graxo fundamental que não é produzido pelo organismo.",
+    image: imgOmega6,
+    benefits: [
+      "Reduz colesterol ruim (LDL)",
+      "Previne doenças cardiovasculares",
+      "Combate excesso de glicose",
+      "Regula temperatura corporal"
+    ]
+  },
+  {
+    title: "Ômega 7",
+    description: "Ácido palmitoleico, considerado novo e com potentes benefícios.",
+    image: imgOmega7,
+    benefits: [
+      "Aumenta sensibilidade à insulina",
+      "Reduz processos inflamatórios",
+      "Melhora elasticidade das artérias",
+      "Auxilia no controle de apetite"
+    ]
+  },
+  {
+    title: "Ômega 9",
+    description: "Ácido oleico que auxilia na absorção de vitaminas.",
+    image: imgOmega9,
+    benefits: [
+      "Proteção cardiovascular",
+      "Reduz triglicerídeos",
+      "Auxilia na produção de hormônios",
+      "Isolante térmico natural"
+    ]
+  },
+  {
+    title: "Vitamina A",
+    description: "Essencial para renovação celular e sistema imunológico.",
+    image: null,
+    benefits: [
+      "Boa para os olhos",
+      "Importante para a pele",
+      "Contribui para o crescimento",
+      "Evita infecções"
+    ]
+  },
+  {
+    title: "Vitamina E",
+    description: "Poderosa ação antioxidante que combate radicais livres.",
+    image: null,
+    benefits: [
+      "Previne Alzheimer e doenças cardíacas",
+      "Melhora função cardíaca",
+      "Bom para gestantes",
+      "Previne degeneração da mácula"
+    ]
+  },
+  {
+    title: "Vitaminas B1, B5 e B9",
+    description: "Complexo vitamínico essencial para o metabolismo energético, sistema nervoso e formação celular.",
+    image: imgVitB1B5B9,
+    benefits: [
+      "Melhora saúde do fígado",
+      "Fortalece memória e concentração",
+      "Auxilia na formação de células sanguíneas",
+      "Essencial para gestantes",
+      "Antioxidante natural"
+    ]
+  },
+  {
+    title: "Vitamina K2",
+    description: "Vitamina lipossolúvel que direciona o cálcio para os ossos e dentes, evitando o acúmulo nas artérias.",
+    image: imgVitK2,
+    benefits: [
+      "Fortalece ossos e dentes",
+      "Previne calcificação arterial",
+      "Melhora a saúde cardiovascular",
+      "Auxilia na coagulação sanguínea"
+    ]
+  },
+  {
+    title: "Vitamina D3",
+    description: "Conhecida como a vitamina do sol, é essencial para a absorção de cálcio e fortalecimento do sistema imunológico.",
+    image: imgVitD3,
+    benefits: [
+      "Fortalece o sistema imunológico",
+      "Essencial para a saúde dos ossos",
+      "Melhora o humor e combate a depressão",
+      "Auxilia na prevenção de doenças crônicas"
+    ]
+  },
+  {
+    title: "Vitamina B9",
+    description: "Também conhecida como Ácido Fólico, é fundamental para a divisão celular e formação do DNA.",
+    image: imgVitB9,
+    benefits: [
+      "Essencial na gravidez para o bebê",
+      "Previne anemia megaloblástica",
+      "Auxilia na saúde cerebral",
+      "Contribui para a saúde do coração"
+    ]
+  }
+];
+---
+
+<Section id="ingredients" class="bg-gray-50 py-24">
+  <div class="text-center max-w-3xl mx-auto mb-16">
+    <div class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-[#005C54] uppercase bg-[#CFFAE5] rounded-full">
+      Fórmula Exclusiva
+    </div>
+    <h2 class="text-3xl md:text-4xl font-bold text-[#002E2A] mb-4">
+      O Poder da <span class="text-[#005C54]">Composição Natural</span>
+    </h2>
+    <p class="text-lg text-gray-500">
+      Entenda por que o Óleo de Avestruz é considerado um dos alimentos mais completos da natureza.
+    </p>
+  </div>
+
+  <div class="space-y-16">
+    {ingredients.map((item, index) => (
+      <div class={`flex flex-col md:flex-row gap-8 md:gap-16 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+        <div class="flex-1 space-y-6">
+          <div class={`inline-block px-4 py-2 rounded-full text-sm font-bold shadow-sm ${index % 2 === 0 ? 'bg-[#CFFAE5] text-[#005C54]' : 'bg-[#005C54]/10 text-[#005C54]'}`}>
+            Ingrediente Premium
+          </div>
+          <div class="flex items-center gap-5">
+            {item.image && (
+              <img
+                src={item.image.src}
+                width={item.image.width}
+                height={item.image.height}
+                alt={item.title}
+                class="w-20 h-auto object-contain drop-shadow-lg shrink-0"
+                loading="lazy"
+              />
+            )}
+            <h3 class="text-4xl font-bold text-[#002E2A]">{item.title}</h3>
+          </div>
+          <p class="text-lg text-gray-600 leading-relaxed border-l-4 border-gray-200 pl-4">
+            {item.description}
+          </p>
+        </div>
+
+        <div class="flex-1 border border-white/[0.15] p-8 md:p-10 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.4)] transition-all duration-300 w-full relative overflow-hidden group">
+          <!-- BG image -->
+          <img
+            src={bgCard.src}
+            width={bgCard.width}
+            height={bgCard.height}
+            alt=""
+            class="absolute inset-0 w-full h-full object-cover rounded-3xl"
+            loading="lazy"
+            decoding="async"
+          />
+          <!-- Dark overlay + glass -->
+          <div class="absolute inset-0 bg-[#002E2A]/80 backdrop-blur-xl rounded-3xl"></div>
+          <!-- Inner glow top -->
+          <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+          <!-- Grain noise -->
+          <div class="absolute inset-0 rounded-3xl opacity-[0.12]" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E'); background-size: 128px;"></div>
+          <!-- Color blobs -->
+          <div class={`absolute top-0 right-0 w-40 h-40 rounded-full blur-3xl opacity-15 -mr-10 -mt-10 transition-transform duration-500 group-hover:scale-150 ${index % 2 === 0 ? 'bg-[#CFFAE5]' : 'bg-[#FDC800]'}`}></div>
+          <div class={`absolute bottom-0 left-0 w-32 h-32 rounded-full blur-3xl opacity-10 -ml-8 -mb-8 ${index % 2 === 0 ? 'bg-[#FDC800]' : 'bg-[#CFFAE5]'}`}></div>
+
+          <h4 class="font-bold text-white mb-6 flex items-center gap-2 text-xl relative z-10">
+            Principais Benefícios
+          </h4>
+          <ul class="space-y-4 relative z-10">
+            {item.benefits.map((benefit) => (
+              <li class="flex items-start gap-3 text-white/80">
+                <CheckCircle2 className="w-6 h-6 shrink-0 mt-0.5 text-[#CFFAE5]" />
+                <span class="font-medium">{benefit}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="text-center mt-16">
+    <a href="#offers" class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold bg-[#FDC800] hover:bg-[#e6b600] text-[#006252] rounded-full shadow-lg shadow-[#FDC800]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+      Quero Minha Saúde de Volta
+    </a>
+  </div>
+</Section>

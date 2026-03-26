@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+// Trigger Vercel deploy
+import Hero from '../components/sections/Hero.astro';
+import MarqueeBanner from '../components/sections/MarqueeBanner.astro';
+import MediaMentions from '../components/sections/MediaMentions.astro';
+import Benefits from '../components/sections/Benefits.astro';
+import OleoAvestruz from '../components/sections/OleoAvestruz.astro';
+import Ingredients from '../components/sections/Ingredients.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import VideoTestimonials from '../components/sections/VideoTestimonials.astro';
+import Pricing from '../components/sections/Pricing.astro';
+import FAQ from '../components/sections/FAQ.astro';
+import Footer from '../components/sections/Footer.astro';
+---
+
+<Layout title="Ômegas da Amazônia - Suplemento 100% Natural">
+  <main class="overflow-x-hidden">
+    <Hero />
+    <MarqueeBanner />
+    <MediaMentions />
+    <Benefits />
+    <Ingredients />
+    <Testimonials />
+    <VideoTestimonials />
+    <OleoAvestruz />
+    <Pricing />
+    <FAQ />
+  </main>
+  <Footer />
+</Layout>

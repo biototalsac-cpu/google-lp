@@ -1,0 +1,121 @@
+---
+import imgProduto from "../../assets/images/oleo-avestruz-produto.png?url";
+
+const stats = [
+  {
+    number: "97%",
+    label: "dos clientes",
+    description: "relatam melhora nas dores articulares",
+  },
+  {
+    number: "93%",
+    label: "dos clientes",
+    description: "sentem mais disposição e energia",
+  },
+  {
+    number: "98%",
+    label: "dos clientes",
+    description: "recomendam para amigos e família",
+  },
+];
+
+const badges = [
+  { icon: "shield", text: "Registro ANVISA" },
+  { icon: "zap", text: "Alta Biodisponibilidade" },
+  { icon: "award", text: "Pioneiro Original" },
+  { icon: "heart", text: "Livre de Químicos" },
+  { icon: "check", text: "Testado em Laboratório" },
+  { icon: "globe", text: "Origem Amazônica" },
+];
+
+const iconPaths: Record<string, string> = {
+  leaf: "M17 8C8 10 5.9 16.9 3.8 19.8A2 2 0 0 0 5 22h2c2 0 4-1 6-3 2 2 4 3 6 3h2a2 2 0 0 0 1.2-2.2C20.1 16.9 18 10 9 8M12 4c0 3 2 5 2 5s2-2 2-5-2-5-2-5-2 2-2 5",
+  shield: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z",
+  zap: "M13 2L3 14h9l-1 8 10-12h-9l1-8z",
+  award: "M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z",
+  heart: "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z",
+  check: "M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4 12 14.01l-3-3",
+  globe: "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z",
+};
+---
+
+<section id="oleo-avestruz" class="relative bg-white py-16 md:py-28 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Top: Image + Text -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center mb-12 md:mb-20">
+
+      <!-- Left: Product Image -->
+      <div class="relative mx-auto w-full max-w-md md:max-w-none">
+        <div class="relative rounded-2xl md:rounded-3xl overflow-hidden aspect-square">
+          <img
+            src={imgProduto}
+            alt="Óleo de Avestruz - Amazon Struhtio - Ômegas 3-6-9"
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+      </div>
+
+      <!-- Right: Text Content -->
+      <div class="text-center md:text-left">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#002E2A] leading-tight mb-4 md:mb-6">
+          O Óleo de Avestruz é Diferente de Qualquer Outro Suplemento
+        </h2>
+
+        <p class="text-base sm:text-lg text-gray-600 mb-3 md:mb-4 leading-relaxed">
+          Natural, eficaz e com sinergia única com o corpo humano. Nossa fórmula exclusiva combina Ômegas 3, 6, 7 e 9 com Alquilgliceróis e vitaminas essenciais para resultados reais.
+        </p>
+
+        <p class="text-base sm:text-lg text-gray-600 mb-4 md:mb-6 leading-relaxed">
+          Sinta menos dores, mais disposição e uma saúde transformada com apenas cápsulas por dia — 100% natural, da Amazônia para você.
+        </p>
+
+        <p class="text-base sm:text-lg font-bold text-[#002E2A] mb-8 md:mb-10">
+          Viva melhor com o poder dos Ômegas da Amazônia.
+        </p>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-3 gap-3 sm:gap-6">
+          {stats.map((stat) => (
+            <div class="border-t-2 border-[#002E2A] pt-3 sm:pt-4">
+              <p class="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#002E2A]">{stat.number}</p>
+              <p class="text-xs sm:text-sm font-bold text-[#002E2A]">{stat.label}</p>
+              <p class="text-xs sm:text-sm text-gray-500 mt-1">{stat.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Badges grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 mb-10">
+      {badges.map((badge) => (
+        <div class="flex items-center gap-2 justify-center sm:justify-start">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#E8F5E9] flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-[#004D40]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d={iconPaths[badge.icon]} />
+            </svg>
+          </div>
+          <span class="text-xs sm:text-sm font-bold text-[#002E2A]">{badge.text}</span>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-sm text-gray-500 mb-3">a partir de R$ 2,90 por dia</p>
+      <a
+        href="#offers"
+        class="inline-flex items-center justify-center gap-2 px-6 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-bold bg-[#004D40] hover:bg-[#003D35] text-white rounded-full shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+      >
+        QUERO MEU ÓLEO ORIGINAL
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </a>
+      <p class="text-sm text-gray-400 mt-3">Garantia de 30 dias ou seu dinheiro de volta</p>
+      <img src="/metodo-de-pagamento.svg" alt="Métodos de pagamento aceitos" class="mx-auto mt-4 h-8 sm:h-10 opacity-70" />
+    </div>
+
+  </div>
+</section>
