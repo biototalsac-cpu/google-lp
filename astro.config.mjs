@@ -16,7 +16,7 @@ export default defineConfig({
   output: 'server',
   adapter: vercel(),
 
-  site: 'https://www.biototalnatural.com.br',
+  site: 'https://loja.biototalnatural.com.br',
   
   // Garante que arquivos do public são servidos corretamente
   publicDir: './public',

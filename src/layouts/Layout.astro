@@ -1,7 +1,6 @@
 ---
 import "../styles/global.css";
 import FreeShippingBanner from "../components/sections/FreeShippingBanner.astro";
-import defaultOgImageAsset from "../assets/images/oleo-avestruz-produto.png";
 
 interface Props {
   title: string;
@@ -9,17 +8,118 @@ interface Props {
   ogImage?: string;
 }
 
-const { 
-  title, 
+const {
+  title,
   description = "Suplemento 100% Natural - Ômegas da Amazônia",
-  ogImage = defaultOgImageAsset.src
+  ogImage = "/oleo-avestruz-produto.png"
 } = Astro.props;
 
-const siteUrl = "https://www.biototalnatural.com.br";
+const siteUrl = (Astro.site?.toString().replace(/\/$/, "") ?? "https://www.biototalnatural.com.br");
+const canonicalUrl = Astro.url.href;
 const resolvedOgImage =
   ogImage.startsWith("http://") || ogImage.startsWith("https://")
     ? ogImage
     : `${siteUrl}${ogImage}`;
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Biototal Natural",
+  "legalName": "BIO TOTAL - LTDA",
+  "url": siteUrl,
+  "logo": `${siteUrl}/favicon.png`,
+  "taxID": "63.781.978/0001-58",
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+55-69-99237-8287",
+      "contactType": "customer service",
+      "availableLanguage": "Portuguese"
+    },
+    {
+      "@type": "ContactPoint",
+      "email": "sac@biototalnatural.com.br",
+      "contactType": "customer service"
+    }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "R. Therezinha Navarro da Silva, 298",
+    "addressLocality": "Hortolândia",
+    "addressRegion": "SP",
+    "postalCode": "13186-241",
+    "addressCountry": "BR"
+  }
+};
+
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Óleo de Avestruz Amazon Struthio",
+  "description": "Suplemento alimentar de alta biodisponibilidade com 4 Ômegas (3, 6, 7 e 9), Alquilgliceróis, Vitaminas A, B1, B5, B9, D3 e K2. 60 cápsulas de 760 mg. EPA + DHA de alto teor de pureza. Livre de metais pesados, sem retrogosto.",
+  "image": `${siteUrl}/oleo-avestruz-produto.png`,
+  "brand": {
+    "@type": "Brand",
+    "name": "Amazon Struthio"
+  },
+  "category": "Saúde > Vitaminas e Suplementos > Ômega",
+  "nutrition": {
+    "@type": "NutritionInformation",
+    "servingSize": "6,8 g (9 cápsulas)",
+    "calories": "53 kcal",
+    "proteinContent": "1,1 g",
+    "fatContent": "5,4 g",
+    "saturatedFatContent": "1,8 g",
+    "unsaturatedFatContent": "3,7 g",
+    "carbohydrateContent": "0 g",
+    "sugarContent": "0 g",
+    "sodiumContent": "0 mg"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "1 Frasco (30 dias)",
+      "price": "80.20",
+      "priceCurrency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "url": "https://seguro.biototalnatural.com.br/r/2R1EV4DFWI",
+      "seller": {
+        "@type": "Organization",
+        "name": "Biototal Natural"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "3 Frascos (90 dias)",
+      "price": "216.53",
+      "priceCurrency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "url": "https://seguro.biototalnatural.com.br/r/FJNI20KIFF",
+      "seller": {
+        "@type": "Organization",
+        "name": "Biototal Natural"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "5 Frascos (150 dias)",
+      "price": "340.84",
+      "priceCurrency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "url": "https://seguro.biototalnatural.com.br/r/2OTG1X8MZ1",
+      "seller": {
+        "@type": "Organization",
+        "name": "Biototal Natural"
+      }
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "312",
+    "bestRating": "5"
+  }
+};
 ---
 
 <!doctype html>
@@ -28,113 +128,27 @@ const resolvedOgImage =
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="canonical" href={canonicalUrl} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
-    
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={resolvedOgImage} />
-    <meta property="og:url" content={siteUrl} />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={resolvedOgImage} />
-    
+
     <!-- JSON-LD: Organization -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Biototal Natural",
-      "legalName": "BIO TOTAL - LTDA",
-      "url": "https://www.biototalnatural.com.br",
-      "logo": "https://www.biototalnatural.com.br/favicon.png",
-      "taxID": "63.781.978/0001-58",
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "telephone": "+55-69-99237-8287",
-          "contactType": "customer service",
-          "availableLanguage": "Portuguese"
-        },
-        {
-          "@type": "ContactPoint",
-          "email": "sac@biototalnatural.com.br",
-          "contactType": "customer service"
-        }
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "R. Therezinha Navarro da Silva, 298",
-        "addressLocality": "Hortolândia",
-        "addressRegion": "SP",
-        "postalCode": "13186-241",
-        "addressCountry": "BR"
-      }
-    }
-    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
 
     <!-- JSON-LD: Product -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Óleo de Avestruz Biototal Natural",
-      "description": "Suplemento alimentar 100% natural com 4 Ômegas (3, 6, 7 e 9), Vitamina D3 e Alquilgliceróis extraídos da Amazônia.",
-      "image": "https://www.biototalnatural.com.br/oleo-avestruz-produto.png",
-      "brand": {
-        "@type": "Brand",
-        "name": "Biototal Natural"
-      },
-      "offers": [
-        {
-          "@type": "Offer",
-          "name": "1 Frasco (30 dias)",
-          "price": "80.20",
-          "priceCurrency": "BRL",
-          "availability": "https://schema.org/InStock",
-          "url": "https://seguro.biototalnatural.com.br",
-          "seller": {
-            "@type": "Organization",
-            "name": "Biototal Natural"
-          }
-        },
-        {
-          "@type": "Offer",
-          "name": "3 Frascos (90 dias)",
-          "price": "216.53",
-          "priceCurrency": "BRL",
-          "availability": "https://schema.org/InStock",
-          "url": "https://seguro.biototalnatural.com.br",
-          "seller": {
-            "@type": "Organization",
-            "name": "Biototal Natural"
-          }
-        },
-        {
-          "@type": "Offer",
-          "name": "5 Frascos (150 dias)",
-          "price": "340.84",
-          "priceCurrency": "BRL",
-          "availability": "https://schema.org/InStock",
-          "url": "https://seguro.biototalnatural.com.br",
-          "seller": {
-            "@type": "Organization",
-            "name": "Biototal Natural"
-          }
-        }
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "312",
-        "bestRating": "5"
-      }
-    }
-    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
 
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

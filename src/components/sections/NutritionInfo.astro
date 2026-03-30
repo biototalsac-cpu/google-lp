@@ -1,0 +1,126 @@
+---
+import Section from "../ui/Section.astro";
+---
+
+<Section id="nutrition" class="bg-white py-16">
+  <div class="max-w-5xl mx-auto px-4">
+
+    <div class="text-center mb-12">
+      <div class="inline-block px-3 py-1 mb-3 text-xs font-semibold tracking-wider text-white uppercase bg-[#005C54] rounded-full">
+        Transparência Total
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold text-[#002E2A] mb-4">
+        Informações <span class="text-[#005C54]">Nutricionais</span>
+      </h2>
+      <p class="text-gray-500 text-lg">Composição completa por porção de 9 cápsulas (6,8 g)</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 items-start">
+
+      <!-- Tabela Nutricional -->
+      <div class="rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+        <div class="bg-[#002E2A] text-white text-center py-3 px-4">
+          <p class="font-bold text-base tracking-wide uppercase">Informação Nutricional</p>
+        </div>
+        <div class="bg-gray-50 px-4 py-2 border-b border-gray-200">
+          <p class="text-xs text-gray-600">Porções por embalagem: <strong>Cerca de 7</strong></p>
+          <p class="text-xs text-gray-600 font-bold">Porção de 6,8 g (9 cápsulas)</p>
+        </div>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-gray-200 bg-gray-100">
+              <th class="text-left px-4 py-2 text-gray-700 font-semibold text-xs">Nutriente</th>
+              <th class="text-center px-2 py-2 text-gray-700 font-semibold text-xs">6,8 g</th>
+              <th class="text-center px-2 py-2 text-gray-700 font-semibold text-xs">%VD*</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { name: "Valor energético (kcal)", amount: "53", vd: "3" },
+              { name: "Proteínas (g)", amount: "1,1", vd: "2" },
+              { name: "Gorduras totais (g)", amount: "5,4", vd: "8" },
+              { name: "Gorduras saturadas (g)", amount: "1,8", vd: "9", indent: true },
+              { name: "Gorduras monoinsaturadas (g)", amount: "2,1", vd: "1", indent: true },
+              { name: "Ácido palmitoleico (g)", amount: "0,4", vd: "—", indent: true, sub: true },
+              { name: "Ômega 9 (g)", amount: "1,7", vd: "—", indent: true, sub: true },
+              { name: "Gorduras poli-insaturadas (g)", amount: "1,6", vd: "8", indent: true },
+              { name: "Ômega 6 (g)", amount: "1,3", vd: "7", indent: true, sub: true },
+              { name: "Ômega 3 (mg)", amount: "148", vd: "4", indent: true, sub: true },
+              { name: "Vitamina K (μg)", amount: "100", vd: "83" },
+            ].map((row, i) => (
+              <tr class={`border-b border-gray-100 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
+                <td class={`px-4 py-2 text-gray-700 text-xs ${row.sub ? 'pl-8 text-[#005C54] font-medium' : row.indent ? 'pl-6' : 'font-semibold'}`}>
+                  {row.name}
+                </td>
+                <td class="text-center px-2 py-2 text-gray-800 text-xs font-medium">{row.amount}</td>
+                <td class="text-center px-2 py-2 text-gray-500 text-xs">{row.vd}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <div class="px-4 py-3 bg-gray-50 border-t border-gray-200">
+          <p class="text-[10px] text-gray-500 leading-relaxed">
+            Não contém quantidades significativas de carboidratos, açúcares totais, açúcares adicionados, gorduras trans, fibras e sódio.
+          </p>
+          <p class="text-[10px] text-gray-400 mt-1">*Percentual de valores diários fornecidos pela porção</p>
+        </div>
+      </div>
+
+      <!-- Modo de Uso -->
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-2xl font-bold text-[#002E2A] mb-1">Modo de Uso</h3>
+          <p class="text-gray-500 text-sm">Siga as instruções para obter o máximo aproveitamento</p>
+        </div>
+
+        {[
+          {
+            step: "1",
+            title: "Tome 2 a 9 cápsulas por dia",
+            desc: "Dose diária recomendada para adultos saudáveis. Pode ser ajustada conforme orientação médica ou nutricional.",
+          },
+          {
+            step: "2",
+            title: "Junto às refeições principais",
+            desc: "Preferencialmente no café da manhã ou almoço para melhor absorção dos nutrientes.",
+          },
+          {
+            step: "3",
+            title: "Com água suficiente",
+            desc: "Ingira com um copo cheio de água (200 ml) para facilitar a deglutição e absorção.",
+          },
+          {
+            step: "4",
+            title: "Uso contínuo para aproveitamento máximo",
+            desc: "Para aproveitar ao máximo, use diariamente por pelo menos 90 dias. O uso regular pode contribuir para melhor aproveitamento.",
+          },
+        ].map((item) => (
+          <div class="flex gap-4 items-start p-4 rounded-xl border border-gray-100 bg-[#F0FDF8] hover:shadow-md transition-shadow duration-300">
+            <div class="flex-shrink-0 w-9 h-9 rounded-full bg-[#005C54] text-white flex items-center justify-center font-bold text-sm">
+              {item.step}
+            </div>
+            <div>
+              <p class="font-bold text-[#002E2A] text-sm mb-1">{item.title}</p>
+              <p class="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+
+        <!-- Destaques -->
+        <div class="grid grid-cols-2 gap-3 pt-2">
+          {[
+            { label: "760 mg", sub: "por cápsula" },
+            { label: "60 cápsulas", sub: "por pote" },
+            { label: "EPA + DHA", sub: "alto teor de pureza" },
+            { label: "Livre", sub: "de metais pesados" },
+          ].map((tag) => (
+            <div class="text-center p-3 rounded-xl border border-[#005C54]/20 bg-white">
+              <p class="font-bold text-[#005C54] text-sm">{tag.label}</p>
+              <p class="text-gray-400 text-[10px] uppercase tracking-wide">{tag.sub}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</Section>
