@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://loja.biototalnatural.com.br/sitemap.xml
