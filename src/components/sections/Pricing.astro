@@ -97,11 +97,14 @@ const offers = [
           <div class="flex flex-col items-center gap-0.5 mb-1" itemscope itemtype="https://schema.org/Offer">
             <span class="text-xs text-gray-400 line-through">De {offer.oldPrice}</span>
             <span class="text-[10px] text-gray-500">Por apenas</span>
-            <span class={`text-3xl font-black ${offer.featured ? 'text-[#005C54]' : 'text-gray-800'}`}>
-              <meta itemprop="priceCurrency" content="BRL" />
-              <meta itemprop="price" content={offer.price.replace("R$ ", "").replace(",", ".")} />
+            <span
+              itemprop="price"
+              content={offer.price.replace("R$ ", "").replace(",", ".")}
+              class={`text-3xl font-black ${offer.featured ? 'text-[#005C54]' : 'text-gray-800'}`}
+            >
               {offer.price}
             </span>
+            <meta itemprop="priceCurrency" content="BRL" />
           </div>
         </div>
 
