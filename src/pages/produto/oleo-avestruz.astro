@@ -1,0 +1,413 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/sections/Footer.astro';
+import Button from '../../components/ui/Button.astro';
+import Section from '../../components/ui/Section.astro';
+import { ShieldCheck, Truck, Award, Clock, Check } from "lucide-react";
+import productOne from "../../assets/images/oleo-de-avestruz-1-pote.png";
+import productThree from "../../assets/images/Kit-3-oleo-de-avestruz.png";
+import productFive from "../../assets/images/Kit-5-oleo-de-avestruz.png";
+
+const siteUrl = "https://loja.biototalnatural.com.br";
+
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Óleo de Avestruz Amazon Struthio",
+  "description": "Suplemento alimentar de alta biodisponibilidade com 4 Ômegas (3, 6, 7 e 9), Alquilgliceróis, Vitaminas A, B1, B5, B9, D3 e K2. 60 cápsulas de 760 mg. EPA + DHA de alto teor de pureza. Livre de metais pesados, sem retrogosto.",
+  "image": `${siteUrl}/oleo-avestruz-produto.png`,
+  "sku": "B0FR72DNTK",
+  "mpn": "Omegas-3-6-7-9",
+  "gtin13": "7898994625254",
+  "brand": {
+    "@type": "Brand",
+    "name": "Amazon Struthio"
+  },
+  "category": "Saúde > Vitaminas e Suplementos > Ômega",
+  "itemCondition": "https://schema.org/NewCondition",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "1 Frasco (30 dias)",
+      "price": "80.20",
+      "priceCurrency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "itemCondition": "https://schema.org/NewCondition",
+      "url": `${siteUrl}/produto/oleo-avestruz`,
+      "priceValidUntil": "2026-12-31",
+      "seller": {
+        "@type": "Organization",
+        "name": "Biototal Natural"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "BR"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 1,
+            "maxValue": 3,
+            "unitCode": "d"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 5,
+            "maxValue": 15,
+            "unitCode": "d"
+          }
+        }
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "BR",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "3 Frascos (90 dias)",
+      "price": "216.53",
+      "priceCurrency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "itemCondition": "https://schema.org/NewCondition",
+      "url": `${siteUrl}/produto/oleo-avestruz`,
+      "priceValidUntil": "2026-12-31",
+      "seller": {
+        "@type": "Organization",
+        "name": "Biototal Natural"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": "0",
+          "currency": "BRL"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "BR"
+        }
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "BR",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "5 Frascos (150 dias)",
+      "price": "340.84",
+      "priceCurrency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "itemCondition": "https://schema.org/NewCondition",
+      "url": `${siteUrl}/produto/oleo-avestruz`,
+      "priceValidUntil": "2026-12-31",
+      "seller": {
+        "@type": "Organization",
+        "name": "Biototal Natural"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": "0",
+          "currency": "BRL"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "BR"
+        }
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "BR",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      }
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "312",
+    "bestRating": "5"
+  }
+};
+
+const offers = [
+  {
+    name: "1 Pote",
+    duration: "30 dias",
+    featured: false,
+    oldPrice: "R$ 119,90",
+    price: "R$ 80,20",
+    priceValue: "80.20",
+    link: "https://seguro.biototalnatural.com.br/r/2R1EV4DFWI",
+    image: productOne,
+    freeShipping: false,
+  },
+  {
+    name: "3 Potes",
+    duration: "90 dias",
+    featured: true,
+    oldPrice: "R$ 357,90",
+    price: "R$ 216,53",
+    priceValue: "216.53",
+    label: "Mais Vendido",
+    link: "https://seguro.biototalnatural.com.br/r/FJNI20KIFF",
+    image: productThree,
+    freeShipping: true,
+  },
+  {
+    name: "5 Potes",
+    duration: "150 dias",
+    featured: false,
+    oldPrice: "R$ 499,90",
+    price: "R$ 340,84",
+    priceValue: "340.84",
+    label: "Melhor Custo-Benefício",
+    link: "https://seguro.biototalnatural.com.br/r/2OTG1X8MZ1",
+    image: productFive,
+    freeShipping: true,
+  }
+];
+
+const features = [
+  { icon: "shield", title: "100% Natural", desc: "Extraído com tecnologia de ponta, sem aditivos químicos" },
+  { icon: "award", title: "4 Ômegas", desc: "Ômega 3, 6, 7 e 9 em uma única cápsula" },
+  { icon: "truck", title: "Frete Grátis", desc: "Nas compras acima de 3 potes para todo o Brasil" },
+  { icon: "clock", title: "Garantia 90 dias", desc: "Satisfação garantida ou seu dinheiro de volta" },
+];
+---
+
+<Layout
+  title="Óleo de Avestruz Amazon Struthio - Ômegas 3, 6, 7 e 9 | Biototal Natural"
+  description="Óleo de Avestruz Amazon Struthio com 4 Ômegas (3, 6, 7 e 9), Vitaminas D3, K2 e Alquilgliceróis. 60 cápsulas de 760 mg. Suplemento 100% natural da Amazônia. Frete grátis acima de 3 potes."
+>
+  <!-- JSON-LD: Product (página dedicada) -->
+  <script type="application/ld+json" set:html={JSON.stringify(productSchema)} slot="head" />
+
+  <main class="bg-white">
+    <!-- Breadcrumb -->
+    <nav class="max-w-6xl mx-auto px-4 pt-6 pb-2">
+      <ol class="flex items-center gap-2 text-sm text-gray-400">
+        <li><a href="/" class="hover:text-[#005C54] transition-colors">Início</a></li>
+        <li>/</li>
+        <li class="text-gray-700 font-medium">Óleo de Avestruz Amazon Struthio</li>
+      </ol>
+    </nav>
+
+    <!-- Produto Principal -->
+    <section class="max-w-6xl mx-auto px-4 py-8">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <!-- Imagem -->
+        <div class="flex justify-center">
+          <div class="relative">
+            <div class="absolute inset-0 bg-[#CFFAE5] rounded-full blur-3xl opacity-20 scale-75"></div>
+            <img
+              src={productOne.src}
+              width={productOne.width}
+              height={productOne.height}
+              alt="Óleo de Avestruz Amazon Struthio - Frasco com 60 cápsulas de 760mg"
+              class="relative w-full max-w-[350px] drop-shadow-2xl"
+              loading="eager"
+            />
+          </div>
+        </div>
+
+        <!-- Detalhes -->
+        <div class="space-y-5">
+          <div>
+            <p class="text-sm text-[#005C54] font-semibold uppercase tracking-wider mb-1">Amazon Struthio</p>
+            <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
+              Óleo de Avestruz com 4 Ômegas
+            </h1>
+            <p class="text-lg text-gray-500 mt-2">
+              Suplemento 100% natural com Ômegas 3, 6, 7 e 9, Vitaminas D3, K2 e Alquilgliceróis. 60 cápsulas de 760 mg.
+            </p>
+          </div>
+
+          <!-- Rating -->
+          <div class="flex items-center gap-2">
+            <div class="flex gap-0.5">
+              {[1,2,3,4,5].map(() => (
+                <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            <span class="text-sm text-gray-600 font-medium">4.9/5</span>
+            <span class="text-sm text-gray-400">(312 avaliações)</span>
+          </div>
+
+          <!-- Preço principal -->
+          <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+            <p class="text-sm text-gray-400 line-through">De R$ 119,90</p>
+            <div class="flex items-baseline gap-2">
+              <span class="text-4xl font-black text-[#005C54]">R$ 80,20</span>
+              <span class="text-sm text-gray-500">/ 1 frasco</span>
+            </div>
+            <p class="text-xs text-green-600 font-medium mt-1">Economize até 32% nos kits</p>
+          </div>
+
+          <!-- Benefícios rápidos -->
+          <ul class="space-y-2">
+            {[
+              "60 cápsulas de 760 mg",
+              "EPA + DHA de alto teor de pureza",
+              "Livre de metais pesados",
+              "Sem retrogosto",
+              "GTIN: 7898994625254",
+            ].map((item) => (
+              <li class="flex items-center gap-2 text-sm text-gray-700">
+                <Check className="w-4 h-4 text-[#005C54] flex-shrink-0" />
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <Button href="#opcoes-compra" variant="primary" size="lg" class="w-full text-lg py-4">
+            Ver Opções de Compra
+          </Button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="bg-[#F8FBF9] py-12 border-y border-gray-100">
+      <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6">
+        {features.map((f) => (
+          <div class="text-center space-y-2">
+            <div class="w-12 h-12 mx-auto bg-[#005C54] rounded-xl flex items-center justify-center text-white">
+              {f.icon === 'shield' && <ShieldCheck className="w-6 h-6" />}
+              {f.icon === 'award' && <Award className="w-6 h-6" />}
+              {f.icon === 'truck' && <Truck className="w-6 h-6" />}
+              {f.icon === 'clock' && <Clock className="w-6 h-6" />}
+            </div>
+            <h3 class="font-bold text-gray-900 text-sm">{f.title}</h3>
+            <p class="text-xs text-gray-500">{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Opções de Compra -->
+    <section id="opcoes-compra" class="py-16">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-10">
+          Escolha a Melhor Opção
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          {offers.map((offer) => (
+            <div
+              class={`relative rounded-2xl p-5 flex flex-col ${offer.featured ? 'bg-white scale-105 shadow-2xl border-2 border-[#005C54] z-10' : 'bg-white border border-gray-200 shadow-lg'}`}
+              itemscope
+              itemtype="https://schema.org/Offer"
+            >
+              {offer.label && (
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#FDC800] text-[#006252] text-xs font-bold uppercase tracking-widest rounded-full shadow-lg whitespace-nowrap">
+                  {offer.label}
+                </div>
+              )}
+
+              <div class="mb-4 flex justify-center">
+                <img
+                  src={offer.image.src}
+                  width={offer.image.width}
+                  height={offer.image.height}
+                  alt={`${offer.name} - Óleo de Avestruz Amazon Struthio`}
+                  class="h-28 w-auto object-contain"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="text-center mb-4">
+                <h3 class="text-lg font-bold text-gray-800">{offer.name}</h3>
+                <p class="text-xs text-gray-500 uppercase tracking-wide">Rende {offer.duration}</p>
+
+                <div class="mt-3">
+                  <span class="text-xs text-gray-400 line-through block">De {offer.oldPrice}</span>
+                  <span
+                    itemprop="price"
+                    content={offer.priceValue}
+                    class={`text-3xl font-black ${offer.featured ? 'text-[#005C54]' : 'text-gray-800'}`}
+                  >
+                    {offer.price}
+                  </span>
+                  <meta itemprop="priceCurrency" content="BRL" />
+                  <link itemprop="availability" href="https://schema.org/InStock" />
+                  <link itemprop="itemCondition" href="https://schema.org/NewCondition" />
+                  <meta itemprop="url" content={`${siteUrl}/produto/oleo-avestruz`} />
+                </div>
+              </div>
+
+              {offer.freeShipping && (
+                <p class="text-center text-sm font-bold text-[#005C54] mb-3 flex items-center justify-center gap-1">
+                  <Truck className="w-4 h-4" /> Frete Grátis
+                </p>
+              )}
+
+              <div class="mt-auto">
+                <Button href={offer.link} variant={offer.featured ? 'primary' : 'outline'} class="w-full" size="md">
+                  Comprar Agora
+                </Button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Informações adicionais -->
+    <section class="bg-gray-50 py-12 border-t border-gray-100">
+      <div class="max-w-4xl mx-auto px-4 grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-lg font-bold text-gray-900 mb-3">Composição</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            Óleo de Avestruz (Struthio camelus) rico em ácidos graxos essenciais: EPA, DHA, Ácido Oleico,
+            Ácido Palmitoleico e Alquilgliceróis. Enriquecido com Vitaminas A, B1, B5, B9, D3 e K2.
+            Cápsula: gelatina e glicerina.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-gray-900 mb-3">Modo de Uso</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            Tomar 3 cápsulas ao dia, preferencialmente junto às refeições. Não exceder a dose diária
+            recomendada. Manter em local seco e fresco, ao abrigo da luz. Este produto não é um medicamento.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-gray-900 mb-3">Garantia</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            Garantia de satisfação de 90 dias. Se você não estiver satisfeito com os resultados,
+            reembolsamos 100% do seu dinheiro. Consulte nossa
+            <a href="/trocas-e-devolucoes" class="text-[#005C54] underline">política de trocas e devoluções</a>.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-gray-900 mb-3">Entrega</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            Envio para todo o Brasil via Correios e transportadoras parceiras.
+            Prazo estimado: 5 a 15 dias úteis dependendo da região.
+            Frete grátis nas compras acima de 3 potes.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

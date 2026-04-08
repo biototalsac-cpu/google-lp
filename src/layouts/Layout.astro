@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import FreeShippingBanner from "../components/sections/FreeShippingBanner.astro";
+import CookieBanner from "../components/CookieBanner.astro";
 
 interface Props {
   title: string;
@@ -52,6 +53,39 @@ const orgSchema = {
   }
 };
 
+const returnPolicy = {
+  "@type": "MerchantReturnPolicy",
+  "applicableCountry": "BR",
+  "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+  "merchantReturnDays": 7,
+  "returnMethod": "https://schema.org/ReturnByMail",
+  "returnFees": "https://schema.org/FreeReturn",
+  "returnPolicyUrl": `${siteUrl}/trocas-e-devolucoes`
+};
+
+const shippingDetails = {
+  "@type": "OfferShippingDetails",
+  "shippingDestination": {
+    "@type": "DefinedRegion",
+    "addressCountry": "BR"
+  },
+  "deliveryTime": {
+    "@type": "ShippingDeliveryTime",
+    "handlingTime": {
+      "@type": "QuantitativeValue",
+      "minValue": 1,
+      "maxValue": 3,
+      "unitCode": "d"
+    },
+    "transitTime": {
+      "@type": "QuantitativeValue",
+      "minValue": 5,
+      "maxValue": 15,
+      "unitCode": "d"
+    }
+  }
+};
+
 const productSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
@@ -66,6 +100,7 @@ const productSchema = {
     "name": "Amazon Struthio"
   },
   "category": "Saúde > Vitaminas e Suplementos > Ômega",
+  "itemCondition": "https://schema.org/NewCondition",
   "nutrition": {
     "@type": "NutritionInformation",
     "servingSize": "6,8 g (9 cápsulas)",
@@ -85,7 +120,11 @@ const productSchema = {
       "price": "80.20",
       "priceCurrency": "BRL",
       "availability": "https://schema.org/InStock",
-      "url": "https://seguro.biototalnatural.com.br/r/2R1EV4DFWI",
+      "itemCondition": "https://schema.org/NewCondition",
+      "url": `${siteUrl}/produto/oleo-avestruz`,
+      "priceValidUntil": "2026-12-31",
+      "shippingDetails": shippingDetails,
+      "hasMerchantReturnPolicy": returnPolicy,
       "seller": {
         "@type": "Organization",
         "name": "Biototal Natural"
@@ -97,7 +136,11 @@ const productSchema = {
       "price": "216.53",
       "priceCurrency": "BRL",
       "availability": "https://schema.org/InStock",
-      "url": "https://seguro.biototalnatural.com.br/r/FJNI20KIFF",
+      "itemCondition": "https://schema.org/NewCondition",
+      "url": `${siteUrl}/produto/oleo-avestruz`,
+      "priceValidUntil": "2026-12-31",
+      "shippingDetails": { ...shippingDetails, "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "BRL" } },
+      "hasMerchantReturnPolicy": returnPolicy,
       "seller": {
         "@type": "Organization",
         "name": "Biototal Natural"
@@ -109,7 +152,11 @@ const productSchema = {
       "price": "340.84",
       "priceCurrency": "BRL",
       "availability": "https://schema.org/InStock",
-      "url": "https://seguro.biototalnatural.com.br/r/2OTG1X8MZ1",
+      "itemCondition": "https://schema.org/NewCondition",
+      "url": `${siteUrl}/produto/oleo-avestruz`,
+      "priceValidUntil": "2026-12-31",
+      "shippingDetails": { ...shippingDetails, "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "BRL" } },
+      "hasMerchantReturnPolicy": returnPolicy,
       "seller": {
         "@type": "Organization",
         "name": "Biototal Natural"
@@ -153,6 +200,8 @@ const productSchema = {
     <!-- JSON-LD: Product -->
     <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
 
+    <slot name="head" />
+
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -191,6 +240,8 @@ src="https://www.facebook.com/tr?id=3227418370763990&ev=PageView&noscript=1"
     <!-- End Google Tag Manager (noscript) -->
     <FreeShippingBanner />
     <slot />
+
+    <CookieBanner />
 
     <!-- WhatsApp Floating Button -->
     <a
